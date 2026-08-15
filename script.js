@@ -1,187 +1,184 @@
-/* =========================================================
+/* =====================================================
    EL CAZADOR
-   JAVASCRIPT
-========================================================= */
+   SLIDER DE PORTADA
+===================================================== */
+
+const slides = document.querySelectorAll(".hero-slide");
+const dots = document.querySelectorAll(".dot");
+
+const prevButton = document.querySelector(".slider-prev");
+const nextButton = document.querySelector(".slider-next");
+
+let currentSlide = 0;
+let autoplay;
 
 
-/* =========================================================
-   IDIOMAS
-========================================================= */
+/* Cambiar imagen */
 
-let currentLanguage = "es";
+function showSlide(index) {
 
-const languageButton = document.getElementById("languageButton");
+  if (index >= slides.length) {
+    currentSlide = 0;
+  }
 
+  if (index < 0) {
+    currentSlide = slides.length - 1;
+  }
 
-function updateLanguage() {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle(
+      "active",
+      i === currentSlide
+    );
+  });
 
-    const elements = document.querySelectorAll("[data-es][data-en]");
-
-    elements.forEach(element => {
-
-        const spanish = element.getAttribute("data-es");
-        const english = element.getAttribute("data-en");
-
-        if (currentLanguage === "es") {
-            element.textContent = spanish;
-        } else {
-            element.textContent = english;
-        }
-
-    });
-
-
-    document.documentElement.lang = currentLanguage;
-
-    updateLanguageButton();
+  dots.forEach((dot, i) => {
+    dot.classList.toggle(
+      "active",
+      i === currentSlide
+    );
+  });
 }
 
 
-function updateLanguageButton() {
+/* Siguiente */
 
-    if (currentLanguage === "es") {
+function nextSlide() {
+  currentSlide++;
 
-        languageButton.innerHTML = `
-            <span>ES</span>
-            <span class="language-separator">/</span>
-            <span>EN</span>
-        `;
-
-    } else {
-
-        languageButton.innerHTML = `
-            <span>ES</span>
-            <span class="language-separator">/</span>
-            <span>EN</span>
-        `;
-
-    }
-
+  showSlide(currentSlide);
 }
 
 
-languageButton.addEventListener("click", () => {
+/* Anterior */
 
-    currentLanguage = currentLanguage === "es" ? "en" : "es";
+function previousSlide() {
+  currentSlide--;
 
-    updateLanguage();
+  showSlide(currentSlide);
+}
+
+
+/* Botones */
+
+nextButton.addEventListener("click", () => {
+
+  nextSlide();
+
+  restartAutoplay();
 
 });
 
 
-/* =========================================================
-   BARRA SUPERIOR AL HACER SCROLL
-========================================================= */
+prevButton.addEventListener("click", () => {
 
-const topbar = document.querySelector(".topbar");
+  previousSlide();
 
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 40) {
-
-        topbar.style.background = "rgba(16, 24, 19, 0.98)";
-
-    } else {
-
-        topbar.style.background = "rgba(20, 31, 25, 0.94)";
-
-    }
+  restartAutoplay();
 
 });
 
 
-/* =========================================================
-   ANIMACIONES AL ENTRAR EN PANTALLA
-========================================================= */
+/* Puntos */
 
-const animatedElements = document.querySelectorAll(
-    ".menu-category, .info-card, .history-content, .info-services"
+dots.forEach((dot, index) => {
+
+  dot.addEventListener("click", () => {
+
+    currentSlide = index;
+
+    showSlide(currentSlide);
+
+    restartAutoplay();
+
+  });
+
+});
+
+
+/* Autoplay */
+
+function startAutoplay() {
+
+  autoplay = setInterval(() => {
+
+    nextSlide();
+
+  }, 5000);
+
+}
+
+
+function restartAutoplay() {
+
+  clearInterval(autoplay);
+
+  startAutoplay();
+
+}
+
+
+/* =====================================================
+   DESLIZAR CON EL DEDO EN MÓVIL
+===================================================== */
+
+const slider = document.querySelector(".hero-slider");
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+slider.addEventListener(
+  "touchstart",
+  (event) => {
+
+    touchStartX = event.changedTouches[0].screenX;
+
+  },
+  { passive: true }
 );
 
 
-const observer = new IntersectionObserver(
-    entries => {
+slider.addEventListener(
+  "touchend",
+  (event) => {
 
-        entries.forEach(entry => {
+    touchEndX = event.changedTouches[0].screenX;
 
-            if (entry.isIntersecting) {
+    handleSwipe();
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-
-                observer.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.08
-    }
+  },
+  { passive: true }
 );
 
 
-animatedElements.forEach(element => {
+function handleSwipe() {
 
-    element.style.opacity = "0";
-    element.style.transform = "translateY(25px)";
-    element.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+  const distance = touchEndX - touchStartX;
 
-    observer.observe(element);
+  if (Math.abs(distance) < 50) {
+    return;
+  }
 
-});
+  if (distance < 0) {
 
+    nextSlide();
 
-/* =========================================================
-   CERRAR ANIMACIÓN DE NAVEGACIÓN
-========================================================= */
+  } else {
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+    previousSlide();
 
-    link.addEventListener("click", function () {
+  }
 
-        const targetId = this.getAttribute("href");
-
-        if (!targetId || targetId === "#") {
-            return;
-        }
-
-        const target = document.querySelector(targetId);
-
-        if (target) {
-
-            setTimeout(() => {
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }, 50);
-
-        }
-
-    });
-
-});
-
-
-/* =========================================================
-   AÑO AUTOMÁTICO DEL FOOTER
-========================================================= */
-
-const footerYear = document.querySelector(".footer-bottom span");
-
-if (footerYear) {
-
-    footerYear.textContent = `© ${new Date().getFullYear()} El Cazador`;
+  restartAutoplay();
 
 }
 
 
-/* =========================================================
-   INICIAR
-========================================================= */
+/* =====================================================
+   INICIO
+===================================================== */
 
-updateLanguage();
+showSlide(0);
+
+startAutoplay();
