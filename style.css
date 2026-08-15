@@ -1542,3 +1542,106 @@ footer {
     }
 
 }
+/* =========================================================
+   AJUSTES FINALES — EL CAZADOR
+   Sin números + categorías sin desplazamiento lateral
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   QUITAR TODOS LOS NUMERITOS DECORATIVOS
+--------------------------------------------------------- */
+
+/* Número de "La Carta" */
+.section-number {
+    display: none;
+}
+
+/* Números de las tarjetas de categorías */
+.menu-navigation span {
+    display: none;
+}
+
+/* Números que aparecen encima de cada categoría */
+.category-title p {
+    display: none;
+}
+
+
+/* ---------------------------------------------------------
+   CATEGORÍAS EN MÓVIL
+   Sin barra horizontal / sin deslizar hacia la derecha
+--------------------------------------------------------- */
+
+@media (max-width: 850px) {
+
+    .menu-navigation {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        width: 100%;
+
+        margin-left: 0;
+        margin-right: 0;
+
+        padding-left: 0;
+
+        overflow: visible;
+
+        scrollbar-width: auto;
+    }
+
+    .menu-navigation::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-navigation a {
+        min-width: 0;
+        width: 100%;
+
+        min-height: 100px;
+
+        padding: 20px 15px;
+    }
+
+    .menu-navigation a:last-child {
+        border-right: 1px solid var(--border);
+    }
+
+    /* El último apartado ocupa una posición normal,
+       manteniendo la cuadrícula de dos filas/columnas */
+    .menu-navigation a:nth-child(2n) {
+        border-right: none;
+    }
+
+    .menu-navigation a:nth-child(5) {
+        border-right: 1px solid var(--border);
+    }
+
+    /* Evita que los nombres largos provoquen
+       desplazamiento horizontal */
+    .menu-navigation strong {
+        font-size: 20px;
+        line-height: 1.05;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   MÓVILES PEQUEÑOS
+--------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    .menu-navigation a {
+        min-height: 95px;
+        padding: 18px 12px;
+    }
+
+    .menu-navigation strong {
+        font-size: 19px;
+    }
+
+}
