@@ -6,10 +6,12 @@
 
     <title>El Cazador | Restaurante en Torrelodones</title>
 
-    <meta
-        name="description"
-        content="Restaurante El Cazador en Torrelodones. Cocina castellana, platos de caza, guisos tradicionales y terraza ajardinada."
-    >
+    <meta name="description" content="El Cazador, restaurante de cocina castellana y de caza en Torrelodones. Consulta nuestra carta, horarios y reserva.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,242 +22,119 @@
          BARRA SUPERIOR
     ========================== -->
 
-    <header class="navbar">
+    <header class="topbar">
 
-        <a href="#inicio" class="mini-logo">
+        <a href="#inicio" class="brand-mini">
+            <span class="brand-mini-mark">EC</span>
             <span>EL CAZADOR</span>
-            <small>TORRELODONES</small>
         </a>
 
         <nav class="desktop-nav">
-            <a href="#inicio">Inicio</a>
-            <a href="#restaurante">El restaurante</a>
-            <a href="#carta">Carta</a>
-            <a href="#historia">Nuestra historia</a>
-            <a href="#contacto">Contacto</a>
+            <a href="#carta" data-es="Carta" data-en="Menu">Carta</a>
+            <a href="#informacion" data-es="Información" data-en="Information">Información</a>
+            <a href="#historia" data-es="Historia" data-en="History">Historia</a>
         </nav>
 
-        <div class="nav-right">
+        <div class="top-actions">
 
             <button id="languageButton" class="language-button">
-                ES
+                <span>ES</span>
+                <span class="language-separator">/</span>
+                <span>EN</span>
             </button>
 
-            <a href="tel:+34918591613" class="reservation-button">
-                Reservar
+            <a href="tel:+34918591613" class="reserve-small">
+                <span data-es="Reservar" data-en="Book">Reservar</span>
             </a>
 
         </div>
 
-        <button class="mobile-menu-button" id="mobileMenuButton">
-            ☰
-        </button>
-
     </header>
 
 
-    <!-- MENÚ MÓVIL -->
-
-    <div class="mobile-menu" id="mobileMenu">
-
-        <a href="#inicio">Inicio</a>
-        <a href="#restaurante">El restaurante</a>
-        <a href="#carta">Carta</a>
-        <a href="#historia">Nuestra historia</a>
-        <a href="#contacto">Contacto</a>
-
-        <a href="tel:+34918591613" class="mobile-reservation">
-            Reservar mesa
-        </a>
-
-    </div>
-
-
-    <!-- =========================
-         PORTADA
-    ========================== -->
-
     <main>
 
-        <section class="hero" id="inicio">
+        <!-- =========================
+             PORTADA
+        ========================== -->
+
+        <section id="inicio" class="hero">
 
             <div class="hero-overlay"></div>
 
+            <div class="hero-decoration hero-decoration-left"></div>
+            <div class="hero-decoration hero-decoration-right"></div>
+
             <div class="hero-content">
 
-                <div class="emblem">
+                <div class="crest">
 
-                    <span class="emblem-line"></span>
+                    <svg viewBox="0 0 180 180" aria-hidden="true">
+                        <circle cx="90" cy="90" r="82"></circle>
+                        <circle cx="90" cy="90" r="72"></circle>
 
-                    <small>TORRELODONES · MADRID</small>
+                        <path d="M55 60 C40 43 29 31 23 17"></path>
+                        <path d="M55 60 C43 52 34 46 27 37"></path>
+                        <path d="M55 60 C43 65 35 68 25 67"></path>
 
-                    <h1>EL<br>CAZADOR</h1>
+                        <path d="M125 60 C140 43 151 31 157 17"></path>
+                        <path d="M125 60 C137 52 146 46 153 37"></path>
+                        <path d="M125 60 C137 65 145 68 155 67"></path>
 
-                    <span class="emblem-subtitle">
-                        COCINA CASTELLANA · DESDE 1981
-                    </span>
+                        <path d="M72 72 L90 58 L108 72 L102 108 L90 124 L78 108 Z"></path>
+                        <path d="M72 72 L60 88"></path>
+                        <path d="M108 72 L120 88"></path>
+                        <circle cx="81" cy="84" r="3"></circle>
+                        <circle cx="99" cy="84" r="3"></circle>
+                    </svg>
 
-                    <span class="emblem-line"></span>
-
-                </div>
-
-                <p class="hero-description">
-                    Cocina tradicional, platos de caza y sabores
-                    de siempre en un ambiente familiar.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#carta" class="main-button">
-                        Ver la carta
-                    </a>
-
-                    <a href="#restaurante" class="secondary-button">
-                        Descubrir el restaurante
-                    </a>
+                    <div class="crest-text">
+                        <strong>EC</strong>
+                        <small>1981</small>
+                    </div>
 
                 </div>
 
-            </div>
-
-            <div class="hero-bottom">
-                <span>40+ AÑOS DE TRADICIÓN</span>
-                <span>TORRELODONES</span>
-                <span>COCINA CASERA</span>
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PRESENTACIÓN
-        ========================== -->
-
-        <section class="intro-section" id="restaurante">
-
-            <div class="intro-text">
-
-                <span class="section-label">
-                    UNA CASA CON HISTORIA
-                </span>
-
-                <h2>
-                    Tradición castellana,
-                    <em>sin prisas.</em>
-                </h2>
-
-                <p>
-                    El Cazador es un restaurante familiar situado
-                    en Torrelodones, dedicado a la cocina tradicional
-                    española y castellana.
+                <p class="hero-kicker"
+                   data-es="COCINA CASTELLANA · COCINA DE CAZA"
+                   data-en="CASTILIAN CUISINE · GAME SPECIALITIES">
+                    COCINA CASTELLANA · COCINA DE CAZA
                 </p>
 
-                <p>
-                    Aquí los protagonistas son los guisos caseros,
-                    las carnes, los platos de caza y las recetas
-                    que han pasado de generación en generación.
+                <h1>EL CAZADOR</h1>
+
+                <div class="hero-line"></div>
+
+                <p class="hero-location"
+                   data-es="Torrelodones · Sierra de Madrid"
+                   data-en="Torrelodones · Sierra de Madrid">
+                    Torrelodones · Sierra de Madrid
                 </p>
 
-                <a href="#historia" class="text-link">
-                    Conoce nuestra historia →
+                <a href="#carta" class="hero-button">
+                    <span data-es="Ver la carta" data-en="View the menu">Ver la carta</span>
+                    <span class="arrow">↓</span>
                 </a>
 
             </div>
 
-            <div class="intro-card">
-
-                <div class="card-decoration">
-                    ✦
-                </div>
-
-                <span>DESDE</span>
-
-                <strong>1981</strong>
-
-                <small>
-                    Cocina familiar<br>
-                    en Torrelodones
-                </small>
-
-            </div>
-
         </section>
 
 
         <!-- =========================
-             DESTACADOS
+             FRASE INTRODUCTORIA
         ========================== -->
 
-        <section class="featured-section">
+        <section class="intro-strip">
 
-            <div class="section-heading">
+            <div class="intro-symbol">✦</div>
 
-                <span class="section-label">
-                    DE NUESTRA COCINA
-                </span>
+            <p data-es="Recetas de toda la vida, cocina casera y especialidad en platos de caza."
+               data-en="Traditional recipes, homemade cooking and specialities in game dishes.">
+                Recetas de toda la vida, cocina casera y especialidad en platos de caza.
+            </p>
 
-                <h2>
-                    El sabor de siempre
-                </h2>
-
-            </div>
-
-            <div class="featured-grid">
-
-                <article class="food-feature">
-
-                    <div class="food-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Cocina de caza
-                    </h3>
-
-                    <p>
-                        Venado, perdiz y conejo preparados
-                        siguiendo la tradición de la casa.
-                    </p>
-
-                </article>
-
-
-                <article class="food-feature">
-
-                    <div class="food-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Guisos caseros
-                    </h3>
-
-                    <p>
-                        Platos de cuchara elaborados con
-                        recetas tradicionales.
-                    </p>
-
-                </article>
-
-
-                <article class="food-feature">
-
-                    <div class="food-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Terraza ajardinada
-                    </h3>
-
-                    <p>
-                        Un espacio tranquilo para disfrutar
-                        de la cocina cuando llega el buen tiempo.
-                    </p>
-
-                </article>
-
-            </div>
+            <div class="intro-symbol">✦</div>
 
         </section>
 
@@ -264,366 +143,666 @@
              CARTA
         ========================== -->
 
-        <section class="menu-section" id="carta">
+        <section id="carta" class="menu-section">
 
-            <div class="menu-header">
+            <div class="section-heading">
 
-                <span class="section-label">
-                    NUESTRA CARTA
-                </span>
+                <span class="section-number">01</span>
 
-                <h2>
-                    Cocina castellana
-                </h2>
+                <div>
+                    <p class="eyebrow"
+                       data-es="Nuestra cocina"
+                       data-en="Our cuisine">
+                        Nuestra cocina
+                    </p>
 
-                <p>
-                    Recetas tradicionales, productos de siempre
-                    y platos de caza.
+                    <h2 data-es="La Carta" data-en="The Menu">La Carta</h2>
+                </div>
+
+            </div>
+
+
+            <!-- NAVEGACIÓN DE CARTA -->
+
+            <div class="menu-navigation" id="menuInicio">
+
+                <a href="#carnes">
+                    <span>01</span>
+                    <strong data-es="Carnes" data-en="Meats">Carnes</strong>
+                </a>
+
+                <a href="#picar">
+                    <span>02</span>
+                    <strong data-es="Algo de picar" data-en="To share">Algo de picar</strong>
+                </a>
+
+                <a href="#pescados">
+                    <span>03</span>
+                    <strong data-es="Pescados" data-en="Fish">Pescados</strong>
+                </a>
+
+                <a href="#cuchara">
+                    <span>04</span>
+                    <strong data-es="De cuchara" data-en="Spoon dishes">De cuchara</strong>
+                </a>
+
+                <a href="#fresco">
+                    <span>05</span>
+                    <strong data-es="Algo fresco" data-en="Fresh">Algo fresco</strong>
+                </a>
+
+            </div>
+
+
+            <div class="menu-list">
+
+                <!-- =====================
+                     CARNES
+                ====================== -->
+
+                <article id="carnes" class="menu-category">
+
+                    <div class="category-title">
+
+                        <span class="category-icon">♢</span>
+
+                        <div>
+                            <p>01</p>
+                            <h3 data-es="Carnes" data-en="Meats">Carnes</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dish-list">
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Codillo de cerdo" data-en="Pork knuckle">Codillo de cerdo</h4>
+                                <p data-es="El Cazador" data-en="El Cazador style">El Cazador</p>
+                            </div>
+                            <strong>19,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Conejo al ajillo" data-en="Garlic rabbit">Conejo al ajillo</h4>
+                            </div>
+                            <strong>16,50 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Medallones de solomillo de cerdo"
+                                    data-en="Pork tenderloin medallions">
+                                    Medallones de solomillo de cerdo
+                                </h4>
+                                <p data-es="Con salsa árabe" data-en="With Arabic sauce">Con salsa árabe</p>
+                            </div>
+                            <strong>16,50 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Entrecotte de vaca" data-en="Beef entrecôte">Entrecotte de vaca</h4>
+                                <p data-es="Madurada" data-en="Dry-aged">Madurada</p>
+                            </div>
+                            <strong>27,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Estofado de perdiz" data-en="Partridge stew">Estofado de perdiz</h4>
+                            </div>
+                            <strong>19,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Estofado de venado" data-en="Venison stew">Estofado de venado</h4>
+                            </div>
+                            <strong>17,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Chuletas de cordero" data-en="Lamb chops">Chuletas de cordero</h4>
+                            </div>
+                            <strong>21,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Lomo ibérico de bellota"
+                                    data-en="Acorn-fed Iberian pork loin">
+                                    Lomo ibérico de bellota
+                                </h4>
+                            </div>
+                            <strong>23,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Queso de oveja" data-en="Sheep's cheese">Queso de oveja</h4>
+                                <p data-es="Leche cruda" data-en="Raw milk">Leche cruda</p>
+                            </div>
+                            <strong>17,00 €</strong>
+                        </div>
+
+                    </div>
+
+                    <a href="#menuInicio" class="back-menu">
+                        ↑ <span data-es="Volver a la carta" data-en="Back to menu">Volver a la carta</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =====================
+                     ALGO DE PICAR
+                ====================== -->
+
+                <article id="picar" class="menu-category">
+
+                    <div class="category-title">
+
+                        <span class="category-icon">♢</span>
+
+                        <div>
+                            <p>02</p>
+                            <h3 data-es="Algo de picar" data-en="To share">Algo de picar</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dish-list">
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Boquerones fritos" data-en="Fried anchovies">Boquerones fritos</h4>
+                            </div>
+                            <strong>11,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Calamares romana" data-en="Roman-style squid">Calamares romana</h4>
+                            </div>
+                            <strong>13,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Chorizo frito" data-en="Fried chorizo">Chorizo frito</h4>
+                            </div>
+                            <strong>9,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Croquetas de jamón" data-en="Ham croquettes">Croquetas de jamón</h4>
+                                <p data-es="Caseras" data-en="Homemade">Caseras</p>
+                            </div>
+                            <strong>12,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Morcilla frita" data-en="Fried blood sausage">Morcilla frita</h4>
+                            </div>
+                            <strong>9,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Espárragos trigueros fritos"
+                                    data-en="Fried wild asparagus">
+                                    Espárragos trigueros fritos
+                                </h4>
+                            </div>
+                            <strong>12,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Berenjenas rebozadas"
+                                    data-en="Breaded aubergine">
+                                    Berenjenas rebozadas
+                                </h4>
+                            </div>
+                            <strong>12,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Rulo de cabra a la plancha"
+                                    data-en="Grilled goat cheese roll">
+                                    Rulo de cabra a la plancha
+                                </h4>
+                                <p data-es="Con cebolla confitada"
+                                   data-en="With caramelised onion">
+                                    Con cebolla confitada
+                                </p>
+                            </div>
+                            <strong>13,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Pimientos de Padrón"
+                                    data-en="Padrón peppers">
+                                    Pimientos de Padrón
+                                </h4>
+                            </div>
+                            <strong>9,90 €</strong>
+                        </div>
+
+                    </div>
+
+                    <a href="#menuInicio" class="back-menu">
+                        ↑ <span data-es="Volver a la carta" data-en="Back to menu">Volver a la carta</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =====================
+                     PESCADOS
+                ====================== -->
+
+                <article id="pescados" class="menu-category">
+
+                    <div class="category-title">
+
+                        <span class="category-icon">♢</span>
+
+                        <div>
+                            <p>03</p>
+                            <h3 data-es="Pescados" data-en="Fish">Pescados</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dish-list">
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Bacalao" data-en="Cod">Bacalao</h4>
+                                <p data-es="Romana o tomate" data-en="Roman-style or tomato sauce">Romana o tomate</p>
+                            </div>
+                            <strong>18,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Emperador" data-en="Swordfish">Emperador</h4>
+                                <p data-es="A la plancha" data-en="Grilled">A la plancha</p>
+                            </div>
+                            <strong>15,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Lenguado" data-en="Sole">Lenguado</h4>
+                                <p data-es="A la plancha" data-en="Grilled">A la plancha</p>
+                            </div>
+                            <strong>27,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Pimientos de piquillo"
+                                    data-en="Piquillo peppers">
+                                    Pimientos de piquillo
+                                </h4>
+                                <p data-es="Rellenos de bacalao"
+                                   data-en="Stuffed with cod">
+                                    Rellenos de bacalao
+                                </p>
+                            </div>
+                            <strong>16,00 €</strong>
+                        </div>
+
+                    </div>
+
+                    <a href="#menuInicio" class="back-menu">
+                        ↑ <span data-es="Volver a la carta" data-en="Back to menu">Volver a la carta</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =====================
+                     DE CUCHARA
+                ====================== -->
+
+                <article id="cuchara" class="menu-category">
+
+                    <div class="category-title">
+
+                        <span class="category-icon">♢</span>
+
+                        <div>
+                            <p>04</p>
+                            <h3 data-es="De cuchara" data-en="Spoon dishes">De cuchara</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dish-list">
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Sopa de cocido" data-en="Cocido soup">Sopa de cocido</h4>
+                                <p data-es="En temporada" data-en="Seasonal">En temporada</p>
+                            </div>
+                            <strong>9,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Sopa castellana" data-en="Castilian soup">Sopa castellana</h4>
+                                <p data-es="En temporada" data-en="Seasonal">En temporada</p>
+                            </div>
+                            <strong>9,90 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Judiones de Sanabria"
+                                    data-en="Sanabria butter beans">
+                                    Judiones de Sanabria
+                                </h4>
+                            </div>
+                            <strong>13,90 €</strong>
+                        </div>
+
+                    </div>
+
+                    <a href="#menuInicio" class="back-menu">
+                        ↑ <span data-es="Volver a la carta" data-en="Back to menu">Volver a la carta</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =====================
+                     ALGO FRESCO
+                ====================== -->
+
+                <article id="fresco" class="menu-category">
+
+                    <div class="category-title">
+
+                        <span class="category-icon">♢</span>
+
+                        <div>
+                            <p>05</p>
+                            <h3 data-es="Algo fresco" data-en="Fresh">Algo fresco</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dish-list">
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Tomate con ventresca"
+                                    data-en="Tomato with tuna belly">
+                                    Tomate con ventresca
+                                </h4>
+                            </div>
+                            <strong>12,50 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Ensalada de canónigos"
+                                    data-en="Lamb's lettuce salad">
+                                    Ensalada de canónigos
+                                </h4>
+
+                                <p data-es="Queso de cabra, aceitunas negras y tomate cherry"
+                                   data-en="Goat cheese, black olives and cherry tomato">
+                                    Queso de cabra, aceitunas negras y tomate cherry
+                                </p>
+                            </div>
+                            <strong>10,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Aguacate con salmón ahumado"
+                                    data-en="Avocado with smoked salmon">
+                                    Aguacate con salmón ahumado
+                                </h4>
+                            </div>
+                            <strong>13,00 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Gazpacho" data-en="Gazpacho">Gazpacho</h4>
+                                <p data-es="En temporada" data-en="Seasonal">En temporada</p>
+                            </div>
+                            <strong>9,50 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Ensalada de la casa"
+                                    data-en="House salad">
+                                    Ensalada de la casa
+                                </h4>
+                            </div>
+                            <strong>9,50 €</strong>
+                        </div>
+
+                        <div class="dish">
+                            <div>
+                                <h4 data-es="Espárragos Extra D.O."
+                                    data-en="Extra D.O. asparagus">
+                                    Espárragos Extra D.O.
+                                </h4>
+                            </div>
+                            <strong>13,00 €</strong>
+                        </div>
+
+                    </div>
+
+                    <a href="#menuInicio" class="back-menu">
+                        ↑ <span data-es="Volver a la carta" data-en="Back to menu">Volver a la carta</span>
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <div class="menu-note">
+
+                <span>✦</span>
+
+                <p data-es="Algunos platos pueden estar sujetos a temporada o disponibilidad."
+                   data-en="Some dishes may be subject to seasonality or availability.">
+                    Algunos platos pueden estar sujetos a temporada o disponibilidad.
                 </p>
 
-            </div>
-
-
-            <!-- NAVEGACIÓN CARTA -->
-
-            <div class="menu-tabs">
-
-                <button class="menu-tab active" data-category="picoteo">
-                    Algo de picar
-                </button>
-
-                <button class="menu-tab" data-category="cuchara">
-                    De cuchara
-                </button>
-
-                <button class="menu-tab" data-category="fresco">
-                    Algo fresco
-                </button>
-
-                <button class="menu-tab" data-category="carnes">
-                    Carnes
-                </button>
-
-                <button class="menu-tab" data-category="pescados">
-                    Pescados
-                </button>
+                <span>✦</span>
 
             </div>
 
+        </section>
 
-            <!-- CARTA -->
 
-            <div class="menu-container">
+        <!-- =========================
+             INFORMACIÓN
+        ========================== -->
 
-                <!-- PICAR -->
+        <section id="informacion" class="information-section">
 
-                <div class="menu-category active" id="picoteo">
+            <div class="section-heading light-heading">
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Boquerones fritos</h3>
-                        </div>
-                        <strong>11,00 €</strong>
-                    </div>
+                <span class="section-number">02</span>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Calamares romana</h3>
-                        </div>
-                        <strong>13,00 €</strong>
-                    </div>
+                <div>
+                    <p class="eyebrow"
+                       data-es="Ven a conocernos"
+                       data-en="Come and visit us">
+                        Ven a conocernos
+                    </p>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Chorizo frito</h3>
-                        </div>
-                        <strong>9,90 €</strong>
-                    </div>
+                    <h2 data-es="Información" data-en="Information">Información</h2>
+                </div>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Croquetas de jamón</h3>
-                            <p>Caseras</p>
-                        </div>
-                        <strong>12,00 €</strong>
-                    </div>
+            </div>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Morcilla frita</h3>
-                        </div>
-                        <strong>9,90 €</strong>
-                    </div>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Lomo ibérico de bellota</h3>
-                        </div>
-                        <strong>23,00 €</strong>
-                    </div>
+            <div class="info-grid">
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Queso de oveja</h3>
-                            <p>Leche cruda</p>
-                        </div>
-                        <strong>17,00 €</strong>
-                    </div>
+                <!-- RESERVAS -->
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Espárragos trigueros fritos</h3>
-                        </div>
-                        <strong>12,00 €</strong>
-                    </div>
+                <div class="info-card featured-info">
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Berenjenas rebozadas</h3>
-                        </div>
-                        <strong>12,00 €</strong>
-                    </div>
+                    <div class="info-icon">☎</div>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Rulo de cabra a la plancha</h3>
-                            <p>Con cebolla confitada</p>
-                        </div>
-                        <strong>13,90 €</strong>
-                    </div>
+                    <p class="info-label"
+                       data-es="Reservas"
+                       data-en="Reservations">
+                        Reservas
+                    </p>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Pimientos de Padrón</h3>
-                        </div>
-                        <strong>9,90 €</strong>
-                    </div>
+                    <h3>
+                        <a href="tel:+34918591613">91 859 16 13</a>
+                    </h3>
+
+                    <h3>
+                        <a href="tel:+34606182667">606 18 26 67</a>
+                    </h3>
+
+                    <a href="tel:+34606182667" class="info-button">
+                        <span data-es="Llamar ahora" data-en="Call now">Llamar ahora</span>
+                    </a>
 
                 </div>
 
 
-                <!-- CUCHARA -->
+                <!-- UBICACIÓN -->
 
-                <div class="menu-category" id="cuchara">
+                <div class="info-card">
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Sopa de cocido</h3>
-                            <p>En temporada</p>
-                        </div>
-                        <strong>9,90 €</strong>
-                    </div>
+                    <div class="info-icon">⌖</div>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Sopa castellana</h3>
-                            <p>En temporada</p>
-                        </div>
-                        <strong>9,90 €</strong>
-                    </div>
+                    <p class="info-label"
+                       data-es="Dónde estamos"
+                       data-en="Where we are">
+                        Dónde estamos
+                    </p>
 
-                    <div class="menu-item">
-                        <div>
-                            <h3>Judiones de Sanabria</h3>
-                        </div>
-                        <strong>13,90 €</strong>
-                    </div>
+                    <h3>Calle Profesor Alonso Parra, 14</h3>
 
-                </div>
+                    <p>28250 · Torrelodones<br>Madrid</p>
 
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Calle+Profesor+Alonso+Parra+14+Torrelodones+Madrid"
+                        target="_blank"
+                        class="text-link">
 
-                <!-- FRESCO -->
+                        <span data-es="Ver ubicación →" data-en="View location →">
+                            Ver ubicación →
+                        </span>
 
-                <div class="menu-category" id="fresco">
-
-                    <div class="menu-item">
-                        <div>
-                            <h3>Tomate con ventresca</h3>
-                        </div>
-                        <strong>12,50 €</strong>
-                    </div>
-
-                    <div class="menu-item">
-                        <div>
-                            <h3>Ensalada de canónigos</h3>
-                            <p>Queso de cabra, aceitunas negras y tomate cherry</p>
-                        </div>
-                        <strong>10,00 €</strong>
-                    </div>
-
-                    <div class="menu-item">
-                        <div>
-                            <h3>Aguacate con salmón ahumado</h3>
-                        </div>
-                        <strong>13,00 €</strong>
-                    </div>
-
-                    <div class="menu-item">
-                        <div>
-                            <h3>Ensalada de la casa</h3>
-                        </div>
-                        <strong>9,50 €</strong>
-                    </div>
-
-                    <div class="menu-item">
-                        <div>
-                            <h3>Espárragos blancos extra D.O.</h3>
-                        </div>
-                        <strong>13,00 €</strong>
-                    </div>
-
-                    <div class="menu-item">
-                        <div>
-                            <h3>Gazpacho</h3>
-                            <p>En temporada</p>
-                        </div>
-                        <strong>9,50 €</strong>
-                    </div>
+                    </a>
 
                 </div>
 
 
-                <!-- CARNES -->
+                <!-- HORARIO -->
 
-                <div class="menu-category" id="carnes">
+                <div class="info-card">
 
-                    <div class="menu-item featured-dish">
+                    <div class="info-icon">◷</div>
+
+                    <p class="info-label"
+                       data-es="Horario"
+                       data-en="Opening hours">
+                        Horario
+                    </p>
+
+                    <div class="hours">
 
                         <div>
-                            <span class="dish-tag">
-                                ESPECIALIDAD
+                            <span data-es="Lunes – Jueves" data-en="Monday – Thursday">
+                                Lunes – Jueves
                             </span>
-
-                            <h3>Codillo de cerdo El Cazador</h3>
+                            <strong>12:00 – 17:00</strong>
                         </div>
 
-                        <strong>19,90 €</strong>
-
-                    </div>
-
-                    <div class="menu-item featured-dish">
-
                         <div>
-                            <span class="dish-tag">
-                                DE LA CASA
+                            <span data-es="Viernes – Sábado" data-en="Friday – Saturday">
+                                Viernes – Sábado
                             </span>
-
-                            <h3>Conejo al ajillo</h3>
+                            <strong>12:00 – 17:00<br>20:00 – 24:00</strong>
                         </div>
-
-                        <strong>16,50 €</strong>
-
-                    </div>
-
-                    <div class="menu-item">
 
                         <div>
-                            <h3>Medallones de solomillo de cerdo</h3>
-                            <p>Con salsa árabe</p>
+                            <span data-es="Domingo" data-en="Sunday">
+                                Domingo
+                            </span>
+                            <strong>12:00 – 17:00</strong>
                         </div>
-
-                        <strong>16,50 €</strong>
-
-                    </div>
-
-                    <div class="menu-item">
-
-                        <div>
-                            <h3>Entrecotte de vaca</h3>
-                            <p>Madurada</p>
-                        </div>
-
-                        <strong>27,90 €</strong>
-
-                    </div>
-
-                    <div class="menu-item">
-
-                        <div>
-                            <h3>Estofado de perdiz</h3>
-                        </div>
-
-                        <strong>19,90 €</strong>
-
-                    </div>
-
-                    <div class="menu-item">
-
-                        <div>
-                            <h3>Estofado de venado</h3>
-                        </div>
-
-                        <strong>17,90 €</strong>
-
-                    </div>
-
-                    <div class="menu-item">
-
-                        <div>
-                            <h3>Chuletas de cordero</h3>
-                        </div>
-
-                        <strong>21,90 €</strong>
 
                     </div>
 
                 </div>
 
 
-                <!-- PESCADOS -->
+                <!-- EXPERIENCIA -->
 
-                <div class="menu-category" id="pescados">
+                <div class="info-card">
 
-                    <div class="menu-item">
+                    <div class="info-icon">✦</div>
 
-                        <div>
-                            <h3>Bacalao</h3>
-                            <p>Romana o tomate</p>
-                        </div>
+                    <p class="info-label"
+                       data-es="El restaurante"
+                       data-en="The restaurant">
+                        El restaurante
+                    </p>
 
-                        <strong>18,90 €</strong>
+                    <h3 data-es="Cocina tradicional y de caza"
+                        data-en="Traditional cuisine and game">
+                        Cocina tradicional y de caza
+                    </h3>
 
-                    </div>
-
-                    <div class="menu-item">
-
-                        <div>
-                            <h3>Emperador</h3>
-                            <p>A la plancha</p>
-                        </div>
-
-                        <strong>15,00 €</strong>
-
-                    </div>
-
-                    <div class="menu-item">
-
-                        <div>
-                            <h3>Lenguado</h3>
-                            <p>A la plancha</p>
-                        </div>
-
-                        <strong>27,90 €</strong>
-
-                    </div>
-
-                    <div class="menu-item">
-
-                        <div>
-                            <h3>Pimientos de piquillo</h3>
-                            <p>Rellenos de bacalao</p>
-                        </div>
-
-                        <strong>16,00 €</strong>
-
-                    </div>
+                    <p data-es="Un restaurante familiar con salón y terraza ajardinada, pensado para comer sin prisas."
+                       data-en="A family restaurant with dining rooms and a landscaped terrace, made for relaxed meals.">
+                        Un restaurante familiar con salón y terraza ajardinada, pensado para comer sin prisas.
+                    </p>
 
                 </div>
 
+            </div>
 
-                <div class="menu-note">
-                    <span>※</span>
-                    Pan por persona: 1,00 € · Precios con IVA incluido
+
+            <div class="info-services">
+
+                <div>
+                    <span>01</span>
+                    <strong data-es="Comida para llevar" data-en="Takeaway">Comida para llevar</strong>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <strong data-es="Celebraciones y eventos" data-en="Events & celebrations">Celebraciones y eventos</strong>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <strong data-es="Gran terraza" data-en="Large terrace">Gran terraza</strong>
                 </div>
 
             </div>
@@ -635,45 +814,58 @@
              HISTORIA
         ========================== -->
 
-        <section class="history-section" id="historia">
+        <section id="historia" class="history-section">
 
-            <div class="history-image">
-                <div class="history-image-overlay"></div>
-
-                <div class="history-image-text">
-                    <span>DESDE 1981</span>
-                    <strong>Una familia.<br>Una casa.<br>Una tradición.</strong>
-                </div>
-            </div>
-
+            <div class="history-decoration"></div>
 
             <div class="history-content">
 
-                <span class="section-label">
-                    NUESTRA HISTORIA
-                </span>
+                <p class="eyebrow"
+                   data-es="Desde 1981"
+                   data-en="Since 1981">
+                    Desde 1981
+                </p>
 
-                <h2>
-                    Más de cuatro décadas
-                    <em>alrededor de una mesa.</em>
+                <h2 data-es="Una historia de familia"
+                    data-en="A family story">
+                    Una historia de familia
                 </h2>
 
-                <p>
-                    El Cazador nació como un negocio familiar y,
-                    con el paso de los años, se ha mantenido fiel
-                    a sus raíces.
+                <div class="history-line"></div>
+
+                <p class="history-lead"
+                   data-es="El Cazador nació para mantener viva una forma de entender la cocina: producto, tiempo y recetas de toda la vida."
+                   data-en="El Cazador was created to preserve a way of understanding cuisine: quality ingredients, time and traditional recipes.">
+                    El Cazador nació para mantener viva una forma de entender la cocina:
+                    producto, tiempo y recetas de toda la vida.
                 </p>
 
-                <p>
-                    La cocina tradicional castellana y los platos
-                    de caza siguen siendo parte fundamental de
-                    nuestra identidad.
+                <p
+                    data-es="Desde 1981, este restaurante familiar de Torrelodones ha mantenido como protagonistas la cocina castellana, los guisos caseros y, especialmente, los platos de caza."
+                    data-en="Since 1981, this family restaurant in Torrelodones has kept Castilian cuisine, homemade stews and, especially, game dishes at the heart of its cooking.">
+                    Desde 1981, este restaurante familiar de Torrelodones ha mantenido
+                    como protagonistas la cocina castellana, los guisos caseros y,
+                    especialmente, los platos de caza.
                 </p>
 
-                <p>
-                    Un restaurante pensado para comer tranquilo,
-                    celebrar y volver.
+                <p
+                    data-es="El conejo al ajillo, el estofado de venado y la perdiz son parte de esa tradición que ha ido pasando de generación en generación."
+                    data-en="Garlic rabbit, venison stew and partridge are part of that tradition, passed down from generation to generation.">
+                    El conejo al ajillo, el estofado de venado y la perdiz son parte de
+                    esa tradición que ha ido pasando de generación en generación.
                 </p>
+
+                <div class="history-quote">
+
+                    <span>“</span>
+
+                    <p
+                        data-es="Cocina tradicional, castellana y de caza en la sierra de Madrid."
+                        data-en="Traditional Castilian and game cuisine in the Sierra de Madrid.">
+                        Cocina tradicional, castellana y de caza en la sierra de Madrid.
+                    </p>
+
+                </div>
 
             </div>
 
@@ -681,130 +873,30 @@
 
 
         <!-- =========================
-             TERRAZA
+             CTA FINAL
         ========================== -->
 
-        <section class="terrace-section">
+        <section class="final-cta">
 
-            <div class="terrace-content">
+            <div class="final-crest">EC</div>
 
-                <span class="section-label">
-                    UN RINCÓN ESPECIAL
+            <p data-es="EL CAZADOR · TORRELODONES"
+               data-en="EL CAZADOR · TORRELODONES">
+                EL CAZADOR · TORRELODONES
+            </p>
+
+            <h2
+                data-es="Una mesa siempre merece la pena."
+                data-en="A table is always worth it.">
+                Una mesa siempre merece la pena.
+            </h2>
+
+            <a href="tel:+34606182667" class="hero-button">
+                <span data-es="Reservar mesa" data-en="Book a table">
+                    Reservar mesa
                 </span>
-
-                <h2>
-                    Nuestra terraza
-                </h2>
-
-                <p>
-                    Un espacio ajardinado y tranquilo para disfrutar
-                    de la cocina de El Cazador cuando el tiempo acompaña.
-                </p>
-
-                <a href="#contacto" class="main-button">
-                    Ven a conocernos
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACTO
-        ========================== -->
-
-        <section class="contact-section" id="contacto">
-
-            <div class="contact-header">
-
-                <span class="section-label">
-                    VISÍTANOS
-                </span>
-
-                <h2>
-                    Te esperamos en
-                    <em>Torrelodones.</em>
-                </h2>
-
-            </div>
-
-
-            <div class="contact-grid">
-
-                <div class="contact-box">
-
-                    <span>Dirección</span>
-
-                    <strong>
-                        Calle del Profesor Alonso Parra, 14
-                    </strong>
-
-                    <small>
-                        28250 · Torrelodones · Madrid
-                    </small>
-
-                </div>
-
-
-                <div class="contact-box">
-
-                    <span>Reservas</span>
-
-                    <a href="tel:+34918591613">
-                        91 859 16 13
-                    </a>
-
-                    <a href="tel:+34606182667">
-                        606 182 667
-                    </a>
-
-                </div>
-
-
-                <div class="contact-box">
-
-                    <span>Horario</span>
-
-                    <strong>
-                        Lunes - Jueves y Domingo
-                    </strong>
-
-                    <small>
-                        12:00 - 17:00
-                    </small>
-
-                    <strong>
-                        Viernes - Sábado
-                    </strong>
-
-                    <small>
-                        12:00 - 17:00 · 20:00 - 24:00
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="contact-actions">
-
-                <a
-                    href="https://www.google.com/maps/search/?api=1&query=Calle+del+Profesor+Alonso+Parra+14+Torrelodones"
-                    target="_blank"
-                    class="main-button"
-                >
-                    Cómo llegar
-                </a>
-
-                <a
-                    href="tel:+34918591613"
-                    class="secondary-button dark"
-                >
-                    Llamar para reservar
-                </a>
-
-            </div>
+                <span>→</span>
+            </a>
 
         </section>
 
@@ -817,23 +909,54 @@
 
     <footer>
 
-        <div class="footer-logo">
+        <div class="footer-main">
 
-            <span>EL CAZADOR</span>
+            <div class="footer-brand">
 
-            <small>
-                TORRELODONES · MADRID
-            </small>
+                <div class="footer-mark">EC</div>
+
+                <div>
+                    <strong>EL CAZADOR</strong>
+                    <span
+                        data-es="Cocina castellana y de caza"
+                        data-en="Castilian cuisine & game">
+                        Cocina castellana y de caza
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#carta" data-es="Carta" data-en="Menu">Carta</a>
+                <a href="#informacion" data-es="Información" data-en="Information">Información</a>
+                <a href="#historia" data-es="Historia" data-en="History">Historia</a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <a href="tel:+34918591613">91 859 16 13</a>
+                <a href="tel:+34606182667">606 18 26 67</a>
+
+            </div>
 
         </div>
 
-        <p>
-            Cocina castellana · Cocina de caza · Desde 1981
-        </p>
 
-        <span class="footer-copy">
-            © 2026 El Cazador
-        </span>
+        <div class="footer-bottom">
+
+            <span>© 2026 El Cazador</span>
+
+            <span
+                data-es="Torrelodones · Madrid"
+                data-en="Torrelodones · Madrid">
+                Torrelodones · Madrid
+            </span>
+
+        </div>
 
     </footer>
 
