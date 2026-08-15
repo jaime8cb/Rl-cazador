@@ -1,149 +1,187 @@
-/* =========================
-   CAMBIO DE CATEGORÍAS
-========================= */
-
-const menuTabs = document.querySelectorAll(".menu-tab");
-const menuCategories = document.querySelectorAll(".menu-category");
-
-menuTabs.forEach(tab => {
-
-    tab.addEventListener("click", () => {
-
-        const category = tab.dataset.category;
-
-        menuTabs.forEach(button => {
-            button.classList.remove("active");
-        });
-
-        menuCategories.forEach(section => {
-            section.classList.remove("active");
-        });
-
-        tab.classList.add("active");
-
-        document
-            .getElementById(category)
-            .classList.add("active");
-
-    });
-
-});
+/* =========================================================
+   EL CAZADOR
+   JAVASCRIPT
+========================================================= */
 
 
-/* =========================
-   MENÚ MÓVIL
-========================= */
+/* =========================================================
+   IDIOMAS
+========================================================= */
 
-const mobileMenuButton =
-    document.getElementById("mobileMenuButton");
+let currentLanguage = "es";
 
-const mobileMenu =
-    document.getElementById("mobileMenu");
+const languageButton = document.getElementById("languageButton");
 
 
-mobileMenuButton.addEventListener("click", () => {
+function updateLanguage() {
 
-    mobileMenu.classList.toggle("open");
+    const elements = document.querySelectorAll("[data-es][data-en]");
 
-});
+    elements.forEach(element => {
 
+        const spanish = element.getAttribute("data-es");
+        const english = element.getAttribute("data-en");
 
-/* Cerrar menú al pulsar un enlace */
-
-const mobileLinks =
-    mobileMenu.querySelectorAll("a");
-
-mobileLinks.forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        mobileMenu.classList.remove("open");
+        if (currentLanguage === "es") {
+            element.textContent = spanish;
+        } else {
+            element.textContent = english;
+        }
 
     });
 
-});
+
+    document.documentElement.lang = currentLanguage;
+
+    updateLanguageButton();
+}
 
 
-/* =========================
-   CAMBIO DE IDIOMA
-========================= */
+function updateLanguageButton() {
 
-const languageButton =
-    document.getElementById("languageButton");
+    if (currentLanguage === "es") {
 
-let englishMode = false;
-
-languageButton.addEventListener("click", () => {
-
-    englishMode = !englishMode;
-
-    if (englishMode) {
-
-        languageButton.textContent = "EN";
-
-        document.querySelector(".mini-logo small").textContent =
-            "TORRELODONES · MADRID";
-
-        document.querySelector(
-            '.desktop-nav a[href="#inicio"]'
-        ).textContent = "Home";
-
-        document.querySelector(
-            '.desktop-nav a[href="#restaurante"]'
-        ).textContent = "Restaurant";
-
-        document.querySelector(
-            '.desktop-nav a[href="#carta"]'
-        ).textContent = "Menu";
-
-        document.querySelector(
-            '.desktop-nav a[href="#historia"]'
-        ).textContent = "Our story";
-
-        document.querySelector(
-            '.desktop-nav a[href="#contacto"]'
-        ).textContent = "Contact";
-
-        document.querySelector(
-            ".reservation-button"
-        ).textContent = "Book";
-
-        document.querySelector(
-            ".main-button"
-        ).textContent = "View menu";
+        languageButton.innerHTML = `
+            <span>ES</span>
+            <span class="language-separator">/</span>
+            <span>EN</span>
+        `;
 
     } else {
 
-        languageButton.textContent = "ES";
+        languageButton.innerHTML = `
+            <span>ES</span>
+            <span class="language-separator">/</span>
+            <span>EN</span>
+        `;
 
-        document.querySelector(
-            '.desktop-nav a[href="#inicio"]'
-        ).textContent = "Inicio";
+    }
 
-        document.querySelector(
-            '.desktop-nav a[href="#restaurante"]'
-        ).textContent = "El restaurante";
+}
 
-        document.querySelector(
-            '.desktop-nav a[href="#carta"]'
-        ).textContent = "Carta";
 
-        document.querySelector(
-            '.desktop-nav a[href="#historia"]'
-        ).textContent = "Nuestra historia";
+languageButton.addEventListener("click", () => {
 
-        document.querySelector(
-            '.desktop-nav a[href="#contacto"]'
-        ).textContent = "Contacto";
+    currentLanguage = currentLanguage === "es" ? "en" : "es";
 
-        document.querySelector(
-            ".reservation-button"
-        ).textContent = "Reservar";
+    updateLanguage();
 
-        document.querySelector(
-            ".main-button"
-        ).textContent = "Ver la carta";
+});
+
+
+/* =========================================================
+   BARRA SUPERIOR AL HACER SCROLL
+========================================================= */
+
+const topbar = document.querySelector(".topbar");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 40) {
+
+        topbar.style.background = "rgba(16, 24, 19, 0.98)";
+
+    } else {
+
+        topbar.style.background = "rgba(20, 31, 25, 0.94)";
 
     }
 
 });
+
+
+/* =========================================================
+   ANIMACIONES AL ENTRAR EN PANTALLA
+========================================================= */
+
+const animatedElements = document.querySelectorAll(
+    ".menu-category, .info-card, .history-content, .info-services"
+);
+
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.08
+    }
+);
+
+
+animatedElements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(25px)";
+    element.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   CERRAR ANIMACIÓN DE NAVEGACIÓN
+========================================================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function () {
+
+        const targetId = this.getAttribute("href");
+
+        if (!targetId || targetId === "#") {
+            return;
+        }
+
+        const target = document.querySelector(targetId);
+
+        if (target) {
+
+            setTimeout(() => {
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 50);
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   AÑO AUTOMÁTICO DEL FOOTER
+========================================================= */
+
+const footerYear = document.querySelector(".footer-bottom span");
+
+if (footerYear) {
+
+    footerYear.textContent = `© ${new Date().getFullYear()} El Cazador`;
+
+}
+
+
+/* =========================================================
+   INICIAR
+========================================================= */
+
+updateLanguage();
