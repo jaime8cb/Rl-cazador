@@ -1,80 +1,187 @@
-/* =========================================
+/* =========================================================
    EL CAZADOR
    JAVASCRIPT
-========================================= */
+========================================================= */
 
-function reservar() {
 
-  /*
-    Sustituye este número por el teléfono real
-    cuando quieras activar directamente la llamada.
-  */
+/* =========================================================
+   IDIOMAS
+========================================================= */
 
-  const telefono = "";
+let currentLanguage = "es";
 
-  if (telefono) {
-    window.location.href = "tel:" + telefono;
-    return;
-  }
+const languageButton = document.getElementById("languageButton");
 
-  /*
-    Si todavía no se ha puesto el teléfono,
-    mostramos un mensaje sin romper la web.
-  */
 
-  alert("Para reservar, contacta con El Cazador.");
+function updateLanguage() {
+
+    const elements = document.querySelectorAll("[data-es][data-en]");
+
+    elements.forEach(element => {
+
+        const spanish = element.getAttribute("data-es");
+        const english = element.getAttribute("data-en");
+
+        if (currentLanguage === "es") {
+            element.textContent = spanish;
+        } else {
+            element.textContent = english;
+        }
+
+    });
+
+
+    document.documentElement.lang = currentLanguage;
+
+    updateLanguageButton();
 }
 
 
-/* =========================================
-   ANIMACIÓN SUAVE DE ENTRADA
-========================================= */
+function updateLanguageButton() {
 
-document.addEventListener("DOMContentLoaded", () => {
+    if (currentLanguage === "es") {
 
-  const elements = document.querySelectorAll(
-    ".menu-category, .info-card, .story-content"
-  );
+        languageButton.innerHTML = `
+            <span>ES</span>
+            <span class="language-separator">/</span>
+            <span>EN</span>
+        `;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
+    } else {
 
-      entries.forEach((entry) => {
+        languageButton.innerHTML = `
+            <span>ES</span>
+            <span class="language-separator">/</span>
+            <span>EN</span>
+        `;
 
-        if (entry.isIntersecting) {
+    }
 
-          entry.target.classList.add("visible");
+}
 
-          observer.unobserve(entry.target);
-        }
 
-      });
+languageButton.addEventListener("click", () => {
+
+    currentLanguage = currentLanguage === "es" ? "en" : "es";
+
+    updateLanguage();
+
+});
+
+
+/* =========================================================
+   BARRA SUPERIOR AL HACER SCROLL
+========================================================= */
+
+const topbar = document.querySelector(".topbar");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 40) {
+
+        topbar.style.background = "rgba(16, 24, 19, 0.98)";
+
+    } else {
+
+        topbar.style.background = "rgba(20, 31, 25, 0.94)";
+
+    }
+
+});
+
+
+/* =========================================================
+   ANIMACIONES AL ENTRAR EN PANTALLA
+========================================================= */
+
+const animatedElements = document.querySelectorAll(
+    ".menu-category, .info-card, .history-content, .info-services"
+);
+
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
 
     },
     {
-      threshold: 0.08
+        threshold: 0.08
     }
-  );
+);
 
-  elements.forEach((element) => {
+
+animatedElements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(25px)";
+    element.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+
     observer.observe(element);
-  });
 
 });
 
 
-/* =========================================
-   EVITAR COMPORTAMIENTOS DE SCROLL
-   EN LAS CATEGORÍAS
-========================================= */
+/* =========================================================
+   CERRAR ANIMACIÓN DE NAVEGACIÓN
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-  const categoryGrid = document.querySelector(".category-grid");
+    link.addEventListener("click", function () {
 
-  if (categoryGrid) {
-    categoryGrid.style.overflow = "visible";
-    categoryGrid.style.overflowX = "visible";
-  }
+        const targetId = this.getAttribute("href");
+
+        if (!targetId || targetId === "#") {
+            return;
+        }
+
+        const target = document.querySelector(targetId);
+
+        if (target) {
+
+            setTimeout(() => {
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 50);
+
+        }
+
+    });
 
 });
+
+
+/* =========================================================
+   AÑO AUTOMÁTICO DEL FOOTER
+========================================================= */
+
+const footerYear = document.querySelector(".footer-bottom span");
+
+if (footerYear) {
+
+    footerYear.textContent = `© ${new Date().getFullYear()} El Cazador`;
+
+}
+
+
+/* =========================================================
+   INICIAR
+========================================================= */
+
+updateLanguage();
